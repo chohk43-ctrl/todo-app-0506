@@ -8,22 +8,48 @@
 </head>
 <body>
   <div class="container">
-    <h1>Todo List</h1>
 
-    <div class="tabs">
-      <button class="tab active" data-tab="all">전체 보기</button>
-      <button class="tab" data-tab="active">진행중</button>
-      <button class="tab" data-tab="done">완료</button>
+    <!-- 상단 헤더: 뒤로가기 버튼 + 현재 뷰 제목 -->
+    <div class="header">
+      <button id="back-btn" class="back-btn">← 달력</button>
+      <h1 id="view-title">Todo</h1>
     </div>
 
-    <form id="todo-form">
-      <input type="text" id="todo-input" placeholder="할 일을 입력하세요..." />
-      <button type="submit">추가</button>
-    </form>
+    <!-- 월 달력 뷰 -->
+    <div id="calendar-view">
+      <!-- 월 이동 네비게이션 -->
+      <div class="cal-nav">
+        <button id="prev-month">&#8249;</button>
+        <span id="cal-month-label"></span>
+        <button id="next-month">&#8250;</button>
+      </div>
+      <!-- 요일 헤더 -->
+      <div class="cal-grid cal-weekdays">
+        <span>일</span><span>월</span><span>화</span>
+        <span>수</span><span>목</span><span>금</span><span>토</span>
+      </div>
+      <!-- 날짜 셀: JS로 동적 생성 -->
+      <div class="cal-grid" id="cal-days"></div>
+    </div>
 
-    <ul id="todo-list"></ul>
+    <!-- 날짜 상세 뷰 -->
+    <div id="date-view" style="display:none;">
+      <!-- 탭 필터 -->
+      <div class="tabs">
+        <button class="tab active" data-tab="all">전체</button>
+        <button class="tab" data-tab="active">진행중</button>
+        <button class="tab" data-tab="done">완료</button>
+      </div>
+      <!-- 할일 추가 폼 -->
+      <form id="todo-form">
+        <input type="text" id="todo-input" placeholder="할 일을 입력하세요..." />
+        <button type="submit">추가</button>
+      </form>
+      <!-- 할일 목록 -->
+      <ul id="todo-list"></ul>
+    </div>
+
   </div>
-
   <script src="app.js"></script>
 </body>
 </html>
